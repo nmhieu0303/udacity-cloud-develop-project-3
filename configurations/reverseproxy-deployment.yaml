@@ -15,7 +15,7 @@ spec:
         app: reverseproxy
     spec:
       containers:
-      - image: nmhieu0303/udagram-reverseproxy:v1
+      - image: nmhieu0303/udagram-reverseproxyv2
         name: reverseproxy
         imagePullPolicy: Always          
         resources:
@@ -28,3 +28,21 @@ spec:
         ports:
         - containerPort: 8080
       restartPolicy: Always
+
+
+      kubectl get deployment
+
+      kubectl delete service  reverseproxy
+      kubectl delete service  backend-feed
+      kubectl delete service  backend-user
+      kubectl delete service  frontend
+      kubectl delete service  publicfrontend
+      kubectl delete service  publicreverseproxy
+      
+
+      kubectl delete deployment reverseproxy
+      kubectl delete deployment backend-feed
+      kubectl delete deployment backend-user
+      kubectl delete deployment frontend
+      kubectl expose deployment frontend --type=LoadBalancer --name=publicfrontend --port=80
+      kubectl expose deployment reverseproxy --type=LoadBalancer --name=publicreverseproxy
