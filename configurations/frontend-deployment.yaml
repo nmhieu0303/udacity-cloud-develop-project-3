@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/v2
 kind: Deployment
 metadata:
   labels:
@@ -16,7 +16,7 @@ spec:
         api: external        
     spec:
       containers:
-      - image: nmhieu0303/udagram-frontend:v1
+      - image: nmhieu0303/udagram-frontend:v2
         name: frontend
         imagePullPolicy: Always          
         ports:

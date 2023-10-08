@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/v2
 kind: Deployment
 metadata:
   labels:
@@ -15,7 +15,7 @@ spec:
         app: reverseproxy
     spec:
       containers:
-      - image: nmhieu0303/udagram-reverseproxy:lastest
+      - image: nmhieu0303/udagram-reverseproxy:v2
         name: reverseproxy
         imagePullPolicy: Always          
         resources:
